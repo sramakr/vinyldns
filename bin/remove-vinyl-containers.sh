@@ -15,7 +15,7 @@
 # Note: this will not remove the actual images from your
 # machine, just the running containers
 
-IDS=$(docker ps -a | grep -e 'mysql:5.7' -e 'cnadiminti/dynamodb-local:2017-02-16' -e 's12v/elasticmq:0.13.8' -e 'vinyldns'  | awk '{print $1}')
+IDS=$(docker ps -a | grep -v vinyldns-ci | egrep -e 'mysql:5.7|cnadiminti/dynamodb-local:2017-02-16|s12v/elasticmq:0.13.8|vinyldns'  | awk '{print $1}')
 
 echo "killing..."
 echo $(echo "$IDS" | xargs -I {} docker kill {})
