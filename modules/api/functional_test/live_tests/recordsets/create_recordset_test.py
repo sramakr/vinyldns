@@ -1645,7 +1645,7 @@ def test_create_long_txt_record_succeeds(shared_zone_test_context):
 
     zone = shared_zone_test_context.system_test_zone
     record_data = 'a' * 64763
-    long_txt_rs = get_recordset_json(zone, 'long-txt-record', 'TXT', [{'text': record_data}])
+    long_txt_rs = get_recordset_json(zone, 'long-txt-rec', 'TXT', [{'text': record_data}])
 
     try:
         rs_create = client.create_recordset(long_txt_rs, status=202)
